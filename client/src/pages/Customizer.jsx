@@ -8,7 +8,7 @@ import { download } from '../assets';
 import { downloadCanvasToImage, reader } from '../config/helpers';
 import { EditorTabs, FilterTabs, DecalTypes } from '../config/constants';
 import { fadeAnimation, slideAnimation } from '../config/motion';
-import { AIPicker, ColorPicker, CustomButton, FilePicker, Tab } from '../components';
+import { AIPicker, ColorPicker, CustomButton, FilePicker, Tab, Download } from '../components';
 
 const Customizer = () => {
   const snap = useSnapshot(state);
@@ -166,7 +166,20 @@ const Customizer = () => {
               />
             ))}
           </motion.div>
-        </>
+
+          
+          <motion.div
+            className="absolute z-10 bottom-5 right-5"
+            {...fadeAnimation}
+          >
+             <Download 
+              type="filled"
+              title="Download"
+              handleClick={() => state.intro = true}
+              customStyles="w-fit px-4 py-3 font-bold text-sm"
+            />
+          </motion.div>
+          </>
       )}
     </AnimatePresence>
   )
